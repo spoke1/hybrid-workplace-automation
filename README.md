@@ -9,5 +9,8 @@ Focus: bridging on-prem Active Directory, Intune, and Microsoft Entra ID.
 - 🔒 Compliance Export → Intune device compliance + BitLocker status
 - ☁️ Conditional Access Insights → Identify risky sign-ins & device gaps
 
+## Documentation
+- [Compliance Export – usage](docs/ComplianceExport.md)
+
 ## Goal
 Empower IT architects and security engineers to manage hybrid environments efficiently, securely, and at scale.
