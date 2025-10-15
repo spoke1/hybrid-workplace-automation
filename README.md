@@ -14,3 +14,34 @@ Focus: bridging on-prem Active Directory, Intune, and Microsoft Entra ID.
 
 ## Goal
 Empower IT architects and security engineers to manage hybrid environments efficiently, securely, and at scale.
+
+## 🧠 How to connect to Microsoft Graph & Active Directory
+
+Before running any Hybrid Workplace scripts, make sure you can connect to both:
+- **Microsoft Entra ID (Graph)**
+- **On-prem Active Directory**
+
+### 1️⃣ Install required modules
+```powershell
+# Microsoft Graph PowerShell SDK
+Install-Module Microsoft.Graph -Scope CurrentUser
+
+# (Optional) Active Directory RSAT tools
+# Windows Server:
+Install-WindowsFeature RSAT-AD-PowerShell
+# Windows 10/11:
+Add-WindowsCapability -Online -Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
+
+# Authenticate with your Entra ID tenant
+Connect-MgGraph -Scopes "Directory.Read.All"
+
+# Optional: switch to beta profile (for Intune / device properties)
+Select-MgProfile -Name beta
+
+# Test the connection
+Get-MgUser -Top 5 | Select DisplayName, UserPrincipalName
+
+# Import AD module and verify connectivity
+Import-Module ActiveDirectory
+Get-ADUser -Top 1 | Select SamAccountName, Enabled
+
