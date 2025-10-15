@@ -11,6 +11,7 @@ Focus: bridging on-prem Active Directory, Intune, and Microsoft Entra ID.
 
 ## Documentation
 - [Compliance Export – usage](docs/ComplianceExport.md)
+- [HybridADHealth Check](docs/HybridADHealth.md)
 
 ## Goal
 Empower IT architects and security engineers to manage hybrid environments efficiently, securely, and at scale.
