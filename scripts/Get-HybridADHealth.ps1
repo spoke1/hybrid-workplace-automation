@@ -25,6 +25,7 @@
   Author : Ramón Lotz
   Version: 1.0
 #>
+Write-Host "Starting script execution at $(Get-Date -Format 'u')" -ForegroundColor Cyan
 
 [CmdletBinding()]
 param(
@@ -201,11 +202,13 @@ $md += "- AAD users **orphaned (onPrem sync enabled, missing in AD)**: **$orphan
 $md | Out-File -FilePath $mdPath -Encoding UTF8
 
 Write-Host ""
-Write-Host "✅ Done."
+Write-Host "   Done."
 Write-Host "   Stale users      : $usersCsv"
 Write-Host "   Stale computers  : $computersCsv"
 Write-Host "   Not synced (users): $notSyncedCsv"
 Write-Host "   Orphaned in AAD  : $orphanedCsv"
 Write-Host "   Summary MD       : $mdPath"
+Write-Host "   Script completed successfully 🎯" -ForegroundColor Green
+
 
 if ($OpenFolder) { Invoke-Item $OutDir }
